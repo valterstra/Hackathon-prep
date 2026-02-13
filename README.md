@@ -4,6 +4,12 @@ This project includes:
 - A static flight-search landing page (`index.html`, `styles.css`, `script.js`)
 - A local Node backend agent (`server/server.js`) that parses chat messages into flight form fields
 
+## Deploy to Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/valterstra/Hackathon-prep)
+
+Click the button above, then set `OPENAI_API_KEY` in Render before first use.
+
 ## 1) Start backend agent
 
 ```powershell
