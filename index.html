@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyBridge | Book Flights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">SkyBridge</div>
+      <nav aria-label="Main navigation">
+        <a href="#search">Search</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#about">Why us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Simple booking for first-time builders</p>
+          <h1>Find and book your next flight in minutes.</h1>
+          <p>
+            This is a front-end demo landing page. It validates your form and
+            shows mock flight results so you can practice building products.
+          </p>
+        </div>
+
+        <div class="booking-column">
+          <form id="search" class="search-card" novalidate>
+            <h2>Search flights</h2>
+            <div class="field-row">
+              <label for="from">From</label>
+              <input id="from" name="from" type="text" placeholder="Stockholm (ARN)" required />
+            </div>
+            <div class="field-row">
+              <label for="to">To</label>
+              <input id="to" name="to" type="text" placeholder="London (LHR)" required />
+            </div>
+            <div class="field-row">
+              <label for="tripType">Trip Type</label>
+              <select id="tripType" name="tripType">
+                <option value="round_trip">Round-trip</option>
+                <option value="one_way">One-way</option>
+              </select>
+            </div>
+            <div class="field-split">
+              <div class="field-row">
+                <label for="departure">Departure</label>
+                <input id="departure" name="departure" type="date" required />
+              </div>
+              <div class="field-row">
+                <label for="return">Return</label>
+                <input id="return" name="return" type="date" required />
+              </div>
+            </div>
+            <div class="field-split">
+              <div class="field-row">
+                <label for="passengers">Passengers</label>
+                <input id="passengers" name="passengers" type="number" min="1" max="9" value="1" required />
+              </div>
+              <div class="field-row">
+                <label for="travelClass">Class</label>
+                <select id="travelClass" name="travelClass">
+                  <option>Economy</option>
+                  <option>Premium Economy</option>
+                  <option>Business</option>
+                </select>
+              </div>
+            </div>
+            <button id="searchBtn" type="submit">Search flights</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results-section">
+      <div class="container">
+        <h2>Available flights</h2>
+        <p class="section-hint">Submit the form to generate mock results.</p>
+        <div id="resultsList" class="results-list"></div>
+      </div>
+    </section>
+
+    <section id="destinations" class="destinations">
+      <div class="container">
+        <h2>Popular destinations</h2>
+        <div class="destination-grid">
+          <article><h3>Paris</h3><p>Art, food, and weekend escapes.</p></article>
+          <article><h3>Tokyo</h3><p>Tech, culture, and incredible cuisine.</p></article>
+          <article><h3>New York</h3><p>City breaks with nonstop energy.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>Why this demo is useful</h2>
+        <ul>
+          <li>Shows real product structure: hero, form, results, trust sections.</li>
+          <li>Includes core JS logic: input validation + dynamic rendering.</li>
+          <li>Ready for your next step: connect to a real flight API.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>SkyBridge demo for Hackathon prep.</p>
+    </div>
+  </footer>
+
+  <button
+    id="chatToggle"
+    class="chat-toggle"
+    type="button"
+    aria-controls="chatWidget"
+    aria-expanded="false"
+    aria-label="Open booking assistant"
+  >
+    <span aria-hidden="true">AI</span>
+  </button>
+
+  <section id="chatWidget" class="chat-widget" aria-labelledby="assistantTitle" aria-hidden="true">
+    <div class="chat-widget-header">
+      <h2 id="assistantTitle">Booking Assistant</h2>
+      <button id="chatCloseBtn" class="chat-close" type="button" aria-label="Close assistant">×</button>
+    </div>
+    <p class="chat-help">Type naturally in English or Swedish, for example: London to Berlin on 29 August for 2 in business.</p>
+    <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+    <form id="chatForm" class="chat-input-row">
+      <input id="chatInput" type="text" placeholder="Ask the assistant to fill your flight search..." />
+      <button id="chatSendBtn" type="submit">Send</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

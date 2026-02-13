@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: skybridge-app
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
